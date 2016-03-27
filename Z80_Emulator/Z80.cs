@@ -41,7 +41,7 @@ namespace Z80_Emulator
         {
             get
             {
-                return (ushort)(B << 8) + C);
+                return (ushort)((B << 8) + C);
             }
             set
             {
