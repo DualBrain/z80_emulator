@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "z80_emulator", "z80_emulator\z80_emulator.csproj", "{6F931FEA-0D2D-4B8D-B62B-0823310DACAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Z80 Emulator", "Z80_Emulator\Z80 Emulator.csproj", "{B7838F90-3218-47C3-8EE2-13A82E856555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Z80 Emulator UI", "Z80 Emulator UI\Z80 Emulator UI.csproj", "{42971AAC-7253-4531-B7C8-FD8F229D1848}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6F931FEA-0D2D-4B8D-B62B-0823310DACAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F931FEA-0D2D-4B8D-B62B-0823310DACAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F931FEA-0D2D-4B8D-B62B-0823310DACAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F931FEA-0D2D-4B8D-B62B-0823310DACAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7838F90-3218-47C3-8EE2-13A82E856555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7838F90-3218-47C3-8EE2-13A82E856555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7838F90-3218-47C3-8EE2-13A82E856555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7838F90-3218-47C3-8EE2-13A82E856555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42971AAC-7253-4531-B7C8-FD8F229D1848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42971AAC-7253-4531-B7C8-FD8F229D1848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42971AAC-7253-4531-B7C8-FD8F229D1848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42971AAC-7253-4531-B7C8-FD8F229D1848}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

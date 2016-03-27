@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace z80_emulator
+namespace Z80_Emulator_UI
 {
     static class Program
     {

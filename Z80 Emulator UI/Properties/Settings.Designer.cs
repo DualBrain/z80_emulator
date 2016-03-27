@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace z80_emulator.Properties
+namespace Z80_Emulator_UI.Properties
 {
 
 

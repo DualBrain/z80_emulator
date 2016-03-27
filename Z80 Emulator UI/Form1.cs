@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace z80_emulator
+namespace Z80_Emulator_UI
 {
     public partial class Form1 : Form
     {

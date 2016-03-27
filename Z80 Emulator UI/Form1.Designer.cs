@@ -1,4 +1,4 @@
-﻿namespace z80_emulator
+﻿namespace Z80_Emulator_UI
 {
     partial class Form1
     {

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Z80_Emulator")]
+[assembly: AssemblyTitle("Z80 Emulator UI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Z80_Emulator")]
+[assembly: AssemblyProduct("Z80 Emulator UI")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b7838f90-3218-47c3-8ee2-13a82e856555")]
+[assembly: Guid("42971aac-7253-4531-b7c8-fd8f229d1848")]
 
 // Version information for an assembly consists of the following four values:
 //
