@@ -36,7 +36,19 @@ namespace Z80_Emulator
         public byte L_Alt { get; set; }
 
         public ushort HL => (ushort)(L + (H << 8));
-        public ushort BC => (ushort)(C + (B << 8));
+
+        public ushort BC
+        {
+            get
+            {
+                return (ushort)(B << 8) + C);
+            }
+            set
+            {
+                C = (byte)(value & 0xFF);
+                B = (byte)(value >> 8);
+            }
+        }
         public ushort DE => (ushort)(E + (D << 8));
 
         public ushort IX { get; set; }
