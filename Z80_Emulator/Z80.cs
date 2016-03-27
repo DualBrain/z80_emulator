@@ -154,5 +154,15 @@ namespace Z80_Emulator
             PC = 0;
             // TODO complete this
         }
+
+        private void Push(byte val)
+        {
+            throw new NotImplementedException();
+        }
+
+        private byte Pop()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
