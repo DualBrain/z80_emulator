@@ -716,11 +716,5 @@ namespace Z80_Emulator
             else
                 F &= (byte)(~x);    //  reset the flag value
         }
-
-        public void Reset()
-        {
-            PC = 0;
-            // TODO complete this
-        }
     }
 }
