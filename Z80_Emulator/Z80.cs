@@ -408,141 +408,187 @@ namespace Z80_Emulator
                     B = A;
                     break;
                 case 0x48:
+                    //  LD C, B
                     C = B;
                     break;
                 case 0x49:
+                    //  LD C, C
                     C = C;
                     break;
                 case 0x4A:
+                    //  LD C, D
                     C = D;
                     break;
                 case 0x4B:
+                    //  LD C, E
                     C = E;
                     break;
                 case 0x4C:
+                    //  LD C, H
                     C = H;
                     break;
                 case 0x4D:
+                    //  LD C, L
                     C = L;
                     break;
                 case 0x4E:
+                    //  LD C, (HL)
                     C = Memory[HL];
                     break;
                 case 0x4F:
+                    //  LD C, A
                     C = A;
                     break;
                 case 0x50:
+                    //  LD D, B
                     D = B;
                     break;
                 case 0x51:
+                    //  LD D, C
                     D = C;
                     break;
                 case 0x52:
+                    //  LD D, D
                     D = D;
                     break;
                 case 0x53:
+                    //  LD D, E
                     D = E;
                     break;
                 case 0x54:
+                    //  LD D, H
                     D = H;
                     break;
                 case 0x55:
+                    //  LD D, L
                     D = L;
                     break;
                 case 0x56:
+                    //  LD D, (HL)
                     D = Memory[HL];
                     break;
                 case 0x57:
+                    //  LD D, A
                     D = A;
                     break;
                 case 0x58:
+                    //  LD E, B
                     E = B;
                     break;
                 case 0x59:
+                    //  LD E, C
                     E = C;
                     break;
                 case 0x5A:
+                    //  LD E, D
                     E = D;
                     break;
                 case 0x5B:
+                    //  LD E, E
                     E = E;
                     break;
                 case 0x5C:
+                    //  LD E, H
                     E = H;
                     break;
                 case 0x5D:
+                    //  LD E, L
                     E = L;
                     break;
                 case 0x5E:
+                    //  LD E, (HL)
                     E = Memory[HL];
                     break;
                 case 0x5F:
+                    //  LD E, A
                     E = A;
                     break;
                 case 0x60:
+                    //  LD H, B
                     H = B;
                     break;
                 case 0x61:
+                    //  LD H, C
                     H = C;
                     break;
                 case 0x62:
+                    //  LD H, D
                     H = D;
                     break;
                 case 0x63:
+                    //  LD H, E
                     H = E;
                     break;
                 case 0x64:
+                    //  LD H, H
                     H = H;
                     break;
                 case 0x65:
+                    //  LD H, L
                     H = L;
                     break;
                 case 0x66:
+                    //  LD H, (HL)
                     H = Memory[HL];
                     break;
                 case 0x67:
+                    //  LD H, A
                     H = A;
                     break;
                 case 0x68:
+                    //  LD L, B
                     L = B;
                     break;
                 case 0x69:
+                    //  LD L, C
                     L = C;
                     break;
                 case 0x6A:
+                    //  LD L, D
                     L = D;
                     break;
                 case 0x6B:
+                    //  LD L, E
                     L = E;
                     break;
                 case 0x6C:
+                    //  LD L, H
                     L = H;
                     break;
                 case 0x6D:
+                    //  LD L, L
                     L = L;
                     break;
                 case 0x6E:
+                    //  LD L, (HL)
                     L = Memory[HL];
                     break;
                 case 0x6F:
+                    //  LD L, A
                     L = A;
                     break;
                 case 0x70:
+                    //  LD (HL), B
                     Memory[HL] = B;
                     break;
                 case 0x71:
+                    //  LD (HL), C
                     Memory[HL] = C;
                     break;
                 case 0x72:
+                    //  LD (HL), D
                     Memory[HL] = D;
                     break;
                 case 0x73:
+                    //  LD (HL), E
                     Memory[HL] = E;
                     break;
                 case 0x74:
+                    //  LD (HL), H
                     Memory[HL] = H;
                     break;
                 case 0x75:
+                    //  LD (HL), L
                     Memory[HL] = L;
                     break;
                 case 0x76:
@@ -939,34 +985,13 @@ namespace Z80_Emulator
             return val;
         }
 
-        private void RRA()
-        {
-            throw new NotImplementedException();
-        }
-
         private void DAA()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void CPL()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void SCF()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void CCF()
         {
             throw new NotImplementedException();
         }
 
         private void HALT()
         {
-            PC = 0;
             // TODO complete this
             throw new NotImplementedException();
         }
