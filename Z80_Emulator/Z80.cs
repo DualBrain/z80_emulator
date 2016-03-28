@@ -123,7 +123,7 @@ namespace Z80_Emulator
                     break;
                 case 0x07:
                     //  RLCA
-                    A = Rotate(A, 1);
+                    A = RotateLeft(A, 1);
                     break;
                 case 0x08:
                     //  EX AF, AF'
@@ -140,66 +140,100 @@ namespace Z80_Emulator
                     HL += BC;
                     break;
                 case 0x0A:
-                    A = (byte) BC;
+                    //  LD A, (BC)
+                    A = Memory[BC];
                     break;
                 case 0x0B:
+                    //  DEC BC
                     BC--;
                     break;
                 case 0x0C:
+                    //  INC C
                     C++;
                     break;
                 case 0x0D:
+                    //  DEC C
                     C--;
                     break;
                 case 0x0E:
-                    C = Memory[N];
+                    //  LD C, n
+                    C = FetchNextByte();
                     break;
                 case 0x0F:
+                    //  RRCA
+                    A = RotateRight(A, 1);
                     break;
                 case 0x10:
+                    //  DJNZ
+                    //  TODO implement this
                     break;
                 case 0x11:
-                    DE = (ushort) ((Memory[N] << 8) + Memory[++N]);
+                    //  LD DE, nn
+                    DE = Memory.ReadWord(PC);
+                    PC += 2;
                     break;
                 case 0x12:
-                    DE = A;
+                    //  LD (DE), A
+                    Memory[DE] = A;
                     break;
                 case 0x13:
+                    //  INC DE
                     DE++;
                     break;
                 case 0x14:
+                    //  INC D
                     D++;
                     break;
                 case 0x15:
+                    //  DEC D
                     D--;
                     break;
                 case 0x16:
-                    D = Memory[N];
+                    //  LD D, n
+                    D = FetchNextByte();
                     break;
                 case 0x17:
+                    //  RLA
+                    var val = CheckFlag(Flags.CF) ? 1 : 0;
+                    SetFlag(Flags.CF, (val & 0x80) != 0);
+                    A <<= 1;
+                    A |= (byte)val;
                     break;
                 case 0x18:
+                    //  JR LABEL
+                    sbyte e = (sbyte) Memory[PC];
+                    PC = (ushort) (PC + e);
                     break;
                 case 0x19:
+                    //  ADD HL, DE
                     HL += DE;
                     break;
                 case 0x1A:
-                    A = (byte) DE;
+                    //  LD A, (DE)
+                    A = Memory[DE];
                     break;
                 case 0x1B:
+                    //  DEC DE
                     DE--;
                     break;
                 case 0x1C:
+                    //  INC E
                     E++;
                     break;
                 case 0x1D:
+                    //  DEC E
                     E--;
                     break;
                 case 0x1E:
-                    E = Memory[N];
+                    //  LD E, n
+                    E = FetchNextByte();
                     break;
                 case 0x1F:
-                    RRA();
+                    //  RRA
+                    val = CheckFlag(Flags.CF) ? 0x80 : 0;
+                    SetFlag(Flags.CF, (val & 0x1) != 0);
+                    A >>= 1;
+                    A |= (byte)val;
                     break;
                 case 0x20:
                     break;
