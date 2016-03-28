@@ -564,24 +564,31 @@ namespace Z80_Emulator
                     L = Memory[HL];
                     break;
                 case 0x6F:
+                    //  LD L, A
                     L = A;
                     break;
                 case 0x70:
+                    //  LD (HL), B
                     Memory[HL] = B;
                     break;
                 case 0x71:
+                    //  LD (HL), C
                     Memory[HL] = C;
                     break;
                 case 0x72:
+                    //  LD (HL), D
                     Memory[HL] = D;
                     break;
                 case 0x73:
+                    //  LD (HL), E
                     Memory[HL] = E;
                     break;
                 case 0x74:
+                    //  LD (HL), H
                     Memory[HL] = H;
                     break;
                 case 0x75:
+                    //  LD (HL), L
                     Memory[HL] = L;
                     break;
                 case 0x76:
