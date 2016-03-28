@@ -88,7 +88,7 @@ namespace Z80_Emulator
             HandleInstruction(nextByte);
         }
 
-        void HandleInstruction(byte instruction)
+        private void HandleInstruction(byte instruction)
         {
             switch (instruction)
             {
