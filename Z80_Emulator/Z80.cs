@@ -316,68 +316,95 @@ namespace Z80_Emulator
                     PC += 2;
                     break;
                 case 0x32:
-                    Memory[N] = A;
+                    //  LD (nn), A
+                    address = Memory.ReadWord(PC);
+                    PC += 2;
+                    Memory[address] = A;
                     break;
                 case 0x33:
+                    //  INC SP
                     SP++;
                     break;
                 case 0x34:
-                    Memory[HL]++;
+                    //  INC (HL)
+                    Memory[HL] = Memory[HL]++;
                     break;
                 case 0x35:
-                    Memory[HL]--;
+                    //  DEC (HL)
+                    Memory[HL] = Memory[HL]--;
                     break;
                 case 0x36:
-                    Memory[HL] = (byte) N;
+                    //  LD (HL), n
+                    Memory[HL] = FetchNextByte();
                     break;
                 case 0x37:
-                    SCF();
+                    //  SCF
+                    SetFlag(Flags.CF, true);
                     break;
                 case 0x38:
+                    //  JR C LABEL
+                    //  TODO implement this
                     break;
                 case 0x39:
+                    //  ADD HL, SP
                     HL += SP;
                     break;
                 case 0x3A:
-                    A = Memory[N];
+                    //  LD A, (nn)
+                    address = Memory.ReadWord(PC);
+                    PC += 2;
+                    A = Memory[address];
                     break;
                 case 0x3B:
+                    //  DEC SP
                     SP--;
                     break;
                 case 0x3C:
+                    //  INC A
                     A++;
                     break;
                 case 0x3D:
+                    //  DEC A
                     A--;
                     break;
                 case 0x3E:
-                    A = (byte) N;
+                    //  LD A, n
+                    A = FetchNextByte();
                     break;
                 case 0x3F:
-                    CCF();
+                    //  CCF
+                    SetFlag(Flags.CF, !CheckFlag(Flags.CF));
                     break;
                 case 0x40:
+                    //  LD B, B
                     B = B;
                     break;
                 case 0x41:
+                    //  LD B, C
                     B = C;
                     break;
                 case 0x42:
-                    D = B;
+                    //  LD B, D
+                    B = D;
                     break;
                 case 0x43:
+                    //  LD B, E
                     B = E;
                     break;
                 case 0x44:
+                    //  LD B, H
                     B = H;
                     break;
                 case 0x45:
+                    //  LD B, L
                     B = L;
                     break;
                 case 0x46:
+                    //  LD B, (HL)
                     B = Memory[HL];
                     break;
                 case 0x47:
+                    //  LD B, A
                     B = A;
                     break;
                 case 0x48:
