@@ -86,10 +86,10 @@ namespace Z80_Emulator
         {
             var nextByte = FetchNextByte();
             ushort number = 00;
-            instructionHandle(nextByte, number);
+            HandleInstruction(nextByte, number);
         }
 
-        void instructionHandle(byte instruction, ushort N)
+        void HandleInstruction(byte instruction, ushort N)
         {
             switch (instruction)
             {
