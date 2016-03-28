@@ -122,11 +122,22 @@ namespace Z80_Emulator
                     B = FetchNextByte();
                     break;
                 case 0x07:
+                    //  RLCA
+                    A = Rotate(A, 1);
                     break;
                 case 0x08:
+                    //  EX AF, AF'
+                    var tmp = A;
+                    A = A_Alt;
+                    A_Alt = tmp;
+
+                    tmp = F;
+                    F = F_Alt;
+                    F_Alt = tmp;
                     break;
                 case 0x09:
-                    HL = (ushort) (HL + BC);
+                    //  ADD HL, BC
+                    HL += BC;
                     break;
                 case 0x0A:
                     A = (byte) BC;
