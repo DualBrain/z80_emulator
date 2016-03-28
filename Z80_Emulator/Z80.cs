@@ -826,7 +826,19 @@ namespace Z80_Emulator
             }
         }
 
-        private byte Rotate(byte val, int amount)
+        private byte RotateRight(byte val, int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                SetFlag(Flags.CF, (val & 0x80) != 0);
+                val >>= 1;
+                val |= CheckFlag(Flags.CF) ? (byte)0x80 : (byte)0;
+            }
+
+            return val;
+        }
+
+        private byte RotateLeft(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
             {
