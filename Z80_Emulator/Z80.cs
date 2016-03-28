@@ -43,8 +43,8 @@ namespace Z80_Emulator
             }
             set
             {
-                H = (byte)(value & 0xFF);
-                L = (byte)(value >> 8);
+                L = (byte)(value & 0xFF);
+                H = (byte)(value >> 8);
             }
         }
 
@@ -69,8 +69,8 @@ namespace Z80_Emulator
             }
             set
             {
-                D = (byte)(value & 0xFF);
-                E = (byte)(value >> 8);
+                E = (byte)(value & 0xFF);
+                D = (byte)(value >> 8);
             }
         }
 
