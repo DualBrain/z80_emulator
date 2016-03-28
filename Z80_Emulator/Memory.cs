@@ -33,20 +33,24 @@ namespace Z80_Emulator
         {
             get
             {
-                CheckMemoryRange(address);
                 return _memory[address];
             }
             set
             {
-                CheckMemoryRange(address);
                 _memory[address] = value;
             }
         }
 
-        private void CheckMemoryRange(ushort address)
+        public byte ReadByte(ushort address)
         {
-            if (address < 0 || address > MEMORY_SIZE)
-                throw new ArgumentOutOfRangeException(nameof(address));
+            return this[address];
+        }
+
+        public ushort ReadWord(ushort address)
+        {
+            ushort val = this[address];
+            val += (ushort) (this[address++] << 8);
+            return val;
         }
     }
 }
