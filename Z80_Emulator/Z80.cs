@@ -85,11 +85,10 @@ namespace Z80_Emulator
         public void StepEmulation()
         {
             var nextByte = FetchNextByte();
-            ushort number = 00;
-            HandleInstruction(nextByte, number);
+            HandleInstruction(nextByte);
         }
 
-        void HandleInstruction(byte instruction, ushort N)
+        void HandleInstruction(byte instruction)
         {
             switch (instruction)
             {
