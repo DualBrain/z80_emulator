@@ -978,34 +978,13 @@ namespace Z80_Emulator
             return val;
         }
 
-        private void RRA()
-        {
-            throw new NotImplementedException();
-        }
-
         private void DAA()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void CPL()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void SCF()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void CCF()
         {
             throw new NotImplementedException();
         }
 
         private void HALT()
         {
-            PC = 0;
             // TODO complete this
             throw new NotImplementedException();
         }
