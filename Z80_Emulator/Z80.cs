@@ -236,56 +236,84 @@ namespace Z80_Emulator
                     A |= (byte)val;
                     break;
                 case 0x20:
+                    //  JR NZ LABEL
+                    //  TODO implement this
                     break;
                 case 0x21:
-                    HL = N;
+                    //  LD HL, nn
+                    HL = Memory.ReadWord(PC);
+                    PC += 2;
                     break;
                 case 0x22:
-                    Memory[N] = H;
-                    Memory[++N] = L;
+                    //  LD (nn), HL
+                    var address = Memory.ReadWord(PC);
+                    PC += 2;
+                    Memory[address] = L;
+                    address++;
+                    Memory[address] = H;
                     break;
                 case 0x23:
+                    //  INC HL
                     HL++;
                     break;
                 case 0x24:
+                    //  INC H
                     H++;
                     break;
                 case 0x25:
+                    //  DEC H
                     H--;
                     break;
                 case 0x26:
-                    H = Memory[N];
+                    // LD H, n
+                    H = FetchNextByte();
                     break;
                 case 0x27:
+                    //  DAA
                     DAA();
                     break;
                 case 0x28:
+                    //  JR Z LABEL
+                    //  TODO implement this
                     break;
                 case 0x29:
+                    //  ADD HL, HL
                     HL += HL;
                     break;
                 case 0x2A:
-                    HL = (ushort) ((Memory[N] << 8) + Memory[++N]);
+                    //  LD HL, (nn)
+                    address = Memory.ReadWord(PC);
+                    PC += 2;
+                    HL = Memory.ReadWord(address);
                     break;
                 case 0x2B:
+                    //  DEC HL
                     HL--;
                     break;
                 case 0x2C:
+                    //  INC L
                     L++;
                     break;
                 case 0x2D:
+                    //  DEC L
                     L--;
                     break;
                 case 0x2E:
-                    L = (byte) N;
+                    //  LD L, n
+                    L = FetchNextByte();
                     break;
                 case 0x2F:
-                    CPL();
+                    //  CPL
+                    A = (byte)~A;
                     break;
                 case 0x30:
+                    //  JR NC LABEL
+                    //  TODO implement this
                     break;
                 case 0x31:
-                    SP = N;
+                    //  LD SP, nn
+                    SP = Memory.ReadWord(PC);
+                    PC += 2;
                     break;
                 case 0x32:
                     Memory[N] = A;
