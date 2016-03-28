@@ -94,23 +94,32 @@ namespace Z80_Emulator
             {
 
                 case 0x00:
+                    //  NOP
                     break;
                 case 0x01:
+                    //  LD BC, nn
+                    BC = Memory.ReadWord(PC);
+                    PC += 2;
                     break;
                 case 0x02:
-                    BC = A;
+                    //  LD (BC), A
+                    Memory[BC] = A;
                     break;
                 case 0x03:
+                    //  INC BC
                     BC++;
                     break;
                 case 0x04:
+                    //  INC B
                     B++;
                     break;
                 case 0x05:
+                    //  DEC B
                     B--;
                     break;
                 case 0x06:
-                    B = Memory[N];
+                    //  LD B, n
+                    B = FetchNextByte();
                     break;
                 case 0x07:
                     break;
