@@ -629,31 +629,31 @@ namespace Z80_Emulator
         }
 
         private void CPL()
-        {
+            {
  	        throw new NotImplementedException();
-        }
+            }
 
         private void SCF()
-        {
+            {
  	        throw new NotImplementedException();
-        }
+            }
 
         private void CCF()
-        {
+            {
  	        throw new NotImplementedException();
-        }
+            }
 
         private void HALT()
-        {
+            {
             PC = 0;
-            // TODO complete this
+                // TODO complete this
  	        throw new NotImplementedException();
-        }
+            }
 
         private void CP(byte B)
-        {
+            {
  	        throw new NotImplementedException();
-        }
+            }
 
         private void IN(byte A,byte p)
         {
@@ -666,9 +666,9 @@ namespace Z80_Emulator
         }
 
         private void POP(ushort HL)
-        {
+            {
  	        throw new NotImplementedException();
-        }
+            }
 
         private void PUSH(ushort HL)
         {
@@ -715,6 +715,12 @@ namespace Z80_Emulator
                 F |= x;             //  set the flag
             else
                 F &= (byte)(~x);    //  reset the flag value
+        }
+
+        public void Reset()
+        {
+            PC = 0;
+            // TODO complete this
         }
     }
 }
