@@ -123,7 +123,7 @@ namespace Z80_Emulator
                     break;
                 case 0x07:
                     //  RLCA
-                    A = RotateLeftC(A, 1);
+                    A = RLC(A, 1);
                     break;
                 case 0x08:
                     //  EX AF, AF'
@@ -161,7 +161,7 @@ namespace Z80_Emulator
                     break;
                 case 0x0F:
                     //  RRCA
-                    A = RotateRightC(A, 1);
+                    A = RRC(A, 1);
                     break;
                 case 0x10:
                     //  DJNZ
@@ -966,133 +966,133 @@ namespace Z80_Emulator
             byte b = FetchNextByte();
             switch(b)
             {
-                case 0x00: RotateLeftC(B, 1);
+                case 0x00: RLC(B, 1);
                     break;
-                case 0x01: RotateLeftC(C, 1);
+                case 0x01: RLC(C, 1);
                     break;
-                case 0x02: RotateLeftC(D, 1);
+                case 0x02: RLC(D, 1);
                     break;
-                case 0x03: RotateLeftC(E, 1);
+                case 0x03: RLC(E, 1);
                     break;
-                case 0x04: RotateLeftC(H, 1);
+                case 0x04: RLC(H, 1);
                     break;
-                case 0x05: RotateLeftC(L, 1);
+                case 0x05: RLC(L, 1);
                     break;
-                case 0x06: RotateLeftC(Memory[HL],1 );
+                case 0x06: RLC(Memory[HL],1 );
                     break;
-                case 0x07: RotateLeftC(A, 1);
+                case 0x07: RLC(A, 1);
                     break;
-                case 0x08: RotateRightC(B, 1);
+                case 0x08: RRC(B, 1);
                     break;
-                case 0x09: RotateRightC(C, 1);
+                case 0x09: RRC(C, 1);
                     break;
-                case 0x0A: RotateRightC(D, 1);
+                case 0x0A: RRC(D, 1);
                     break;
-                case 0x0B: RotateRightC(E, 1);
+                case 0x0B: RRC(E, 1);
                     break;
-                case 0x0C: RotateRightC(H, 1);
+                case 0x0C: RRC(H, 1);
                     break;
-                case 0x0D: RotateRightC(L, 1);
+                case 0x0D: RRC(L, 1);
                     break;
-                case 0x0E: RotateRightC(Memory[HL], 1);
+                case 0x0E: RRC(Memory[HL], 1);
                     break;
-                case 0x0F: RotateRightC(A, 1);
+                case 0x0F: RRC(A, 1);
                     break;
-                case 0x10: RotateLeft(B, 1);
+                case 0x10: RL(B, 1);
                     break;
-                case 0x11: RotateLeft(C, 1);
+                case 0x11: RL(C, 1);
                     break;
-                case 0x12: RotateLeft(D, 1);
+                case 0x12: RL(D, 1);
                     break;
-                case 0x13: RotateLeft(E, 1);
+                case 0x13: RL(E, 1);
                     break;
-                case 0x14: RotateLeft(H, 1);
+                case 0x14: RL(H, 1);
                     break;
-                case 0x15: RotateLeft(L, 1);
+                case 0x15: RL(L, 1);
                     break;
-                case 0x16: RotateLeft(Memory[HL], 1);
+                case 0x16: RL(Memory[HL], 1);
                     break;
-                case 0x17: RotateLeft(A, 1);
+                case 0x17: RL(A, 1);
                     break;
-                case 0x18: RotateRight(B, 1);
+                case 0x18: RR(B, 1);
                     break;
-                case 0x19: RotateRight(C, 1);
+                case 0x19: RR(C, 1);
                     break;
-                case 0x1A: RotateRight(D, 1);
+                case 0x1A: RR(D, 1);
                     break;
-                case 0x1B: RotateRight(E, 1);
+                case 0x1B: RR(E, 1);
                     break;
-                case 0x1C: RotateRight(H, 1);
+                case 0x1C: RR(H, 1);
                     break;
-                case 0x1D: RotateRight(L, 1);
+                case 0x1D: RR(L, 1);
                     break;
-                case 0x1E: RotateRight(Memory[HL], 1);
+                case 0x1E: RR(Memory[HL], 1);
                     break;
-                case 0x1F: RotateRight(A, 1);
+                case 0x1F: RR(A, 1);
                     break;
-                case 0x20: ShiftLeftA(B, 1);
+                case 0x20: SLA(B, 1);
                     break;
-                case 0x21: ShiftLeftA(C, 1);
+                case 0x21: SLA(C, 1);
                     break;
-                case 0x22: ShiftLeftA(D, 1);
+                case 0x22: SLA(D, 1);
                     break;
-                case 0x23: ShiftLeftA(E, 1);
+                case 0x23: SLA(E, 1);
                     break;
-                case 0x24: ShiftLeftA(H, 1);
+                case 0x24: SLA(H, 1);
                     break;
-                case 0x25: ShiftLeftA(L, 1);
+                case 0x25: SLA(L, 1);
                     break;
-                case 0x26: ShiftLeftA(Memory[HL], 1);
+                case 0x26: SLA(Memory[HL], 1);
                     break;
-                case 0x27: ShiftLeftA(A, 1);
+                case 0x27: SLA(A, 1);
                     break;
-                case 0x28: ShiftRightA(B, 1);
+                case 0x28: SRA(B, 1);
                     break;
-                case 0x29: ShiftRightA(C, 1);
+                case 0x29: SRA(C, 1);
                     break;
-                case 0x2A: ShiftRightA(D, 1);
+                case 0x2A: SRA(D, 1);
                     break;
-                case 0x2B: ShiftRightA(E, 1);
+                case 0x2B: SRA(E, 1);
                     break;
-                case 0x2C: ShiftRightA(H, 1);
+                case 0x2C: SRA(H, 1);
                     break;
-                case 0x2D: ShiftRightA(L, 1);
+                case 0x2D: SRA(L, 1);
                     break;
-                case 0x2E: ShiftRightA(Memory[HL], 1);
+                case 0x2E: SRA(Memory[HL], 1);
                     break;
-                case 0x2F: ShiftRightA(A, 1);
+                case 0x2F: SRA(A, 1);
                     break;
-                case 0x30:
+                case 0x30: SLL(B, 1);
                     break;
-                case 0x31:
+                case 0x31: SLL(C, 1);
                     break;
-                case 0x32:
+                case 0x32: SLL(D, 1);
                     break;
-                case 0x33:
+                case 0x33: SLL(E, 1);
                     break;
-                case 0x34:
+                case 0x34: SLL(H, 1);
                     break;
-                case 0x35:
+                case 0x35: SLL(L, 1);
                     break;
-                case 0x36:
+                case 0x36: SLL(Memory[HL], 1);
                     break;
-                case 0x37:
+                case 0x37: SLL(A, 1);
                     break;
-                case 0x38:
+                case 0x38: SRL(B, 1);
                     break;
-                case 0x39:
+                case 0x39: SRL(C, 1);
                     break;
-                case 0x3A:
+                case 0x3A: SRL(D, 1);
                     break;
-                case 0x3B:
+                case 0x3B: SRL(E, 1);
                     break;
-                case 0x3C:
+                case 0x3C: SRL(H, 1);
                     break;
-                case 0x3D:
+                case 0x3D: SRL(L, 1);
                     break;
-                case 0x3E:
+                case 0x3E: SRL(Memory[HL], 1);
                     break;
-                case 0x3F:
+                case 0x3F: SRL(A, 1);
                     break;
                 case 0x40:
                     break;
@@ -1497,7 +1497,7 @@ namespace Z80_Emulator
             throw new NotImplementedException();
         }
 
-        private byte RotateRight(byte val, int amount)
+        private byte RR(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -1508,7 +1508,7 @@ namespace Z80_Emulator
             return val;
         }
 
-        private byte RotateLeft(byte val, int amount)
+        private byte RL(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -1519,7 +1519,7 @@ namespace Z80_Emulator
             return val;
         }
 
-        private byte RotateRightC(byte val, int amount)
+        private byte RRC(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -1531,7 +1531,7 @@ namespace Z80_Emulator
             return val;
         }
 
-        private byte RotateLeftC(byte val, int amount)
+        private byte RLC(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -1543,7 +1543,7 @@ namespace Z80_Emulator
             return val;
         }
 
-        private byte ShiftLeftA(byte val , int amount)
+        private byte SLA(byte val , int amount)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -1553,7 +1553,7 @@ namespace Z80_Emulator
             return val;
         }
 
-        private byte ShiftRightA(byte val, int amount)
+        private byte SRA(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -1563,6 +1563,21 @@ namespace Z80_Emulator
             }
             return val;
         }
+
+        private byte SLL(byte val, int amount)
+        {
+            return val;
+        }
+        private byte SRL(byte val, int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                SetFlag(Flags.CF, (val & 0x01) == 1);
+                val >>= 1;
+            }
+            return val;
+        }
+
 
         private void DAA()
         {
