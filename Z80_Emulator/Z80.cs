@@ -123,7 +123,7 @@ namespace Z80_Emulator
                     break;
                 case 0x07:
                     //  RLCA
-                    A = RotateLeft(A, 1);
+                    A = RotateLeftC(A, 1);
                     break;
                 case 0x08:
                     //  EX AF, AF'
@@ -161,7 +161,7 @@ namespace Z80_Emulator
                     break;
                 case 0x0F:
                     //  RRCA
-                    A = RotateRight(A, 1);
+                    A = RotateRightC(A, 1);
                     break;
                 case 0x10:
                     //  DJNZ
@@ -961,134 +961,74 @@ namespace Z80_Emulator
             }
         }
 
-        private byte RotateRight(byte val, int amount)
-        {
-            for (int i = 0; i < amount; i++)
-            {
-                SetFlag(Flags.CF, (val & 0x80) != 0);
-                val >>= 1;
-                val |= CheckFlag(Flags.CF) ? (byte)0x80 : (byte)0;
-            }
-
-            return val;
-        }
-
-        private byte RotateLeft(byte val, int amount)
-        {
-            for (int i = 0; i < amount; i++)
-            {
-                SetFlag(Flags.CF, (val & 0x80) != 0);
-                val <<= 1;
-                val |= CheckFlag(Flags.CF) ? (byte) 1 : (byte) 0;
-            }
-
-            return val;
-        }
-
-        private void DAA()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void HALT()
-        {
-            // TODO complete this
-            throw new NotImplementedException();
-        }
-
-        private void CP(byte B)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void IN(byte A, byte p)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void OUT(byte p, byte A)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void POP(ushort HL)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void PUSH(ushort HL)
-        {
-            throw new NotImplementedException();
-        }
-
         private void Handle_CB()
         {
             byte b = FetchNextByte();
             switch(b)
             {
-                case 0x00: RotateLeft(B, 1);
+                case 0x00: RotateLeftC(B, 1);
                     break;
-                case 0x01: RotateLeft(C, 1);
+                case 0x01: RotateLeftC(C, 1);
                     break;
-                case 0x02: RotateLeft(D, 1);
+                case 0x02: RotateLeftC(D, 1);
                     break;
-                case 0x03: RotateLeft(E, 1);
+                case 0x03: RotateLeftC(E, 1);
                     break;
-                case 0x04: RotateLeft(H, 1);
+                case 0x04: RotateLeftC(H, 1);
                     break;
-                case 0x05: RotateLeft(L, 1);
+                case 0x05: RotateLeftC(L, 1);
                     break;
-                case 0x06: RotateLeft(A, Memory[HL]);
+                case 0x06: RotateLeftC(Memory[HL],1 );
                     break;
-                case 0x07: RotateLeft(A, 1);
+                case 0x07: RotateLeftC(A, 1);
                     break;
-                case 0x08:
+                case 0x08: RotateRightC(B, 1);
                     break;
-                case 0x09:
+                case 0x09: RotateRightC(C, 1);
                     break;
-                case 0x0A:
+                case 0x0A: RotateRightC(D, 1);
                     break;
-                case 0x0B:
+                case 0x0B: RotateRightC(E, 1);
                     break;
-                case 0x0C:
+                case 0x0C: RotateRightC(H, 1);
                     break;
-                case 0x0D:
+                case 0x0D: RotateRightC(L, 1);
                     break;
-                case 0x0E:
+                case 0x0E: RotateRightC(Memory[HL], 1);
                     break;
-                case 0x0F:
+                case 0x0F: RotateRightC(A, 1);
                     break;
-                case 0x10:
+                case 0x10: RotateLeft(B, 1);
                     break;
-                case 0x11:
+                case 0x11: RotateLeft(C, 1);
                     break;
-                case 0x12:
+                case 0x12: RotateLeft(D, 1);
                     break;
-                case 0x13:
+                case 0x13: RotateLeft(E, 1);
                     break;
-                case 0x14:
+                case 0x14: RotateLeft(H, 1);
                     break;
-                case 0x15:
+                case 0x15: RotateLeft(L, 1);
                     break;
-                case 0x16:
+                case 0x16: RotateLeft(Memory[HL], 1);
                     break;
-                case 0x17:
+                case 0x17: RotateLeft(A, 1);
                     break;
-                case 0x18:
+                case 0x18: RotateRight(B, 1);
                     break;
-                case 0x19:
+                case 0x19: RotateRight(C, 1);
                     break;
-                case 0x1A:
+                case 0x1A: RotateRight(D, 1);
                     break;
-                case 0x1B:
+                case 0x1B: RotateRight(E, 1);
                     break;
-                case 0x1C:
+                case 0x1C: RotateRight(H, 1);
                     break;
-                case 0x1D:
+                case 0x1D: RotateRight(L, 1);
                     break;
-                case 0x1E:
+                case 0x1E: RotateRight(Memory[HL], 1);
                     break;
-                case 0x1F:
+                case 0x1F: RotateRight(A, 1);
                     break;
                 case 0x20:
                     break;
@@ -1556,6 +1496,89 @@ namespace Z80_Emulator
         {
             throw new NotImplementedException();
         }
+
+        private byte RotateRight(byte val, int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                var temp = (byte)(val & (byte)1);
+                val >>= 1;
+                val |= temp;
+            }
+            return val;
+        }
+        private byte RotateLeft(byte val, int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                var temp = (byte)(val & (byte)0x80); 
+                val <<= 1;
+                val |= temp;
+            }
+            return val;
+        }
+
+        private byte RotateRightC(byte val, int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                SetFlag(Flags.CF, (val & 0x80) != 0);
+                val >>= 1;
+                val |= CheckFlag(Flags.CF) ? (byte)0x80 : (byte)0;
+            }
+
+            return val;
+        }
+
+
+        private byte RotateLeftC(byte val, int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                SetFlag(Flags.CF, (val & 0x80) != 0);
+                val <<= 1;
+                val |= CheckFlag(Flags.CF) ? (byte) 1 : (byte) 0;
+            }
+
+            return val;
+        }
+
+        private void DAA()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void HALT()
+        {
+            // TODO complete this
+            throw new NotImplementedException();
+        }
+
+        private void CP(byte B)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void IN(byte A, byte p)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OUT(byte p, byte A)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void POP(ushort HL)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void PUSH(ushort HL)
+        {
+            throw new NotImplementedException();
+        }
+
 
         private byte FetchNextByte()
         {
