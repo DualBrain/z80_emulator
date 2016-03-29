@@ -1030,37 +1030,37 @@ namespace Z80_Emulator
                     break;
                 case 0x1F: RotateRight(A, 1);
                     break;
-                case 0x20:
+                case 0x20: ShiftLeftA(B, 1);
                     break;
-                case 0x21:
+                case 0x21: ShiftLeftA(C, 1);
                     break;
-                case 0x22:
+                case 0x22: ShiftLeftA(D, 1);
                     break;
-                case 0x23:
+                case 0x23: ShiftLeftA(E, 1);
                     break;
-                case 0x24:
+                case 0x24: ShiftLeftA(H, 1);
                     break;
-                case 0x25:
+                case 0x25: ShiftLeftA(L, 1);
                     break;
-                case 0x26:
+                case 0x26: ShiftLeftA(Memory[HL], 1);
                     break;
-                case 0x27:
+                case 0x27: ShiftLeftA(A, 1);
                     break;
-                case 0x28:
+                case 0x28: ShiftRightA(B, 1);
                     break;
-                case 0x29:
+                case 0x29: ShiftRightA(C, 1);
                     break;
-                case 0x2A:
+                case 0x2A: ShiftRightA(D, 1);
                     break;
-                case 0x2B:
+                case 0x2B: ShiftRightA(E, 1);
                     break;
-                case 0x2C:
+                case 0x2C: ShiftRightA(H, 1);
                     break;
-                case 0x2D:
+                case 0x2D: ShiftRightA(L, 1);
                     break;
-                case 0x2E:
+                case 0x2E: ShiftRightA(Memory[HL], 1);
                     break;
-                case 0x2F:
+                case 0x2F: ShiftRightA(A, 1);
                     break;
                 case 0x30:
                     break;
@@ -1507,6 +1507,7 @@ namespace Z80_Emulator
             }
             return val;
         }
+
         private byte RotateLeft(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
@@ -1530,7 +1531,6 @@ namespace Z80_Emulator
             return val;
         }
 
-
         private byte RotateLeftC(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
@@ -1540,6 +1540,27 @@ namespace Z80_Emulator
                 val |= CheckFlag(Flags.CF) ? (byte) 1 : (byte) 0;
             }
 
+            return val;
+        }
+
+        private byte ShiftLeftA(byte val , int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                SetFlag(Flags.CF, (val & 0x80) == 1);
+                val <<= 1;
+            }
+            return val;
+        }
+
+        private byte ShiftRightA(byte val, int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                SetFlag(Flags.CF, (val & 0x01) == 1);
+                val >>= 1;
+                val &= (byte)0x80;
+            }
             return val;
         }
 
