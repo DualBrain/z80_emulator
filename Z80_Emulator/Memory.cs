@@ -8,7 +8,7 @@ namespace Z80_Emulator
 {
     public class Memory
     {
-        private const ushort MEMORY_SIZE = 65535;   //  2^16 address lines
+        public const ushort MEMORY_SIZE = 65535;   //  2^16 address lines
         private byte[] _memory;
         private int _romSize;
 
