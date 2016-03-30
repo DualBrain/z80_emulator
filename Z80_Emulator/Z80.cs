@@ -1094,133 +1094,133 @@ namespace Z80_Emulator
                     break;
                 case 0x3F: SRL(A, 1);
                     break;
-                case 0x40: BIT0(B);
+                case 0x40: BIT(B, 0x01);          //bit0
                     break;
-                case 0x41: BIT0(C);
+                case 0x41: BIT(C, 0x01);
                     break;
-                case 0x42: BIT0(D);
+                case 0x42: BIT(D, 0x01);
                     break;
-                case 0x43: BIT0(E);
+                case 0x43: BIT(E, 0x01);
                     break;
-                case 0x44: BIT0(H);
+                case 0x44: BIT(H, 0x01);
                     break;
-                case 0x45: BIT0(L);
+                case 0x45: BIT(L, 0x01);
                     break;
-                case 0x46: BIT0(Memory[HL]);
+                case 0x46: BIT(Memory[HL], 0x01);
                     break;
-                case 0x47: BIT0(A);
+                case 0x47: BIT(A, 0x01);          //end
                     break;
-                case 0x48: BIT1(B);
+                case 0x48: BIT(B, 0x02);          //bit1
                     break;
-                case 0x49: BIT1(C);
+                case 0x49: BIT(C, 0x02);
                     break;
-                case 0x4A: BIT1(D);
+                case 0x4A: BIT(D, 0x02);
                     break;
-                case 0x4B: BIT1(E);
+                case 0x4B: BIT(E, 0x02);
                     break;
-                case 0x4C: BIT1(H);
+                case 0x4C: BIT(H, 0x02);
                     break;
-                case 0x4D: BIT1(L);
+                case 0x4D: BIT(L, 0x02);
                     break;
-                case 0x4E: BIT1(Memory[HL]);
+                case 0x4E: BIT(Memory[HL], 0x02);
                     break;
-                case 0x4F: BIT1(A);
+                case 0x4F: BIT(A, 0x02);          //end
                     break;
-                case 0x50: BIT2(B);
+                case 0x50: BIT(B, 0x04);          //bit2
                     break;
-                case 0x51: BIT2(C);
+                case 0x51: BIT(C, 0x04);
                     break;
-                case 0x52: BIT2(D);
+                case 0x52: BIT(D, 0x04);
                     break;
-                case 0x53: BIT2(E);
+                case 0x53: BIT(E, 0x04);
                     break;
-                case 0x54: BIT2(H);
+                case 0x54: BIT(H, 0x04);
                     break;
-                case 0x55: BIT2(L);
+                case 0x55: BIT(L, 0x04);
                     break;
-                case 0x56: BIT2(Memory[HL]);
+                case 0x56: BIT(Memory[HL], 0x04);
                     break;
-                case 0x57: BIT2(A);
+                case 0x57: BIT(A, 0x04);          //end
                     break;
-                case 0x58: BIT3(B);
+                case 0x58: BIT(B, 0x08);          //bit3
                     break;
-                case 0x59: BIT3(C);
+                case 0x59: BIT(C, 0x08);
                     break;
-                case 0x5A: BIT3(D);
+                case 0x5A: BIT(D, 0x08);
                     break;
-                case 0x5B: BIT3(E);
+                case 0x5B: BIT(E, 0x08);
                     break;
-                case 0x5C: BIT3(H);
+                case 0x5C: BIT(H, 0x08);
                     break;
-                case 0x5D: BIT3(L);
+                case 0x5D: BIT(L, 0x08);
                     break;
-                case 0x5E: BIT3(Memory[HL]);
+                case 0x5E: BIT(Memory[HL], 0x08);
                     break;
-                case 0x5F: BIT3(A);
+                case 0x5F: BIT(A, 0x08);           //end
                     break;
-                case 0x60: BIT4(B);
+                case 0x60: BIT(B, 0x10);
                     break;
-                case 0x61: BIT4(C);
+                case 0x61: BIT(C, 0x10);
                     break;
-                case 0x62: BIT4(D);
+                case 0x62: BIT(D, 0x10);
                     break;
-                case 0x63: BIT4(E);
+                case 0x63: BIT(E, 0x10);
                     break;
-                case 0x64: BIT4(H);
+                case 0x64: BIT(H, 0x10);
                     break;
-                case 0x65: BIT4(L);
+                case 0x65: BIT(L, 0x10);
                     break;
-                case 0x66: BIT4(Memory[HL]);
+                case 0x66: BIT(Memory[HL], 0x10);
                     break;
-                case 0x67: BIT4(A);
+                case 0x67: BIT(A,0x10);
                     break;
-                case 0x68: BIT5(B);
+                case 0x68: BIT(B, 0x20);
                     break;
-                case 0x69: BIT5(C);
+                case 0x69: BIT(C, 0x20);
                     break;
-                case 0x6A: BIT5(D);
+                case 0x6A: BIT(D, 0x20);
                     break;
-                case 0x6B: BIT5(E);
+                case 0x6B: BIT(E, 0x20);
                     break;
-                case 0x6C: BIT5(H);
+                case 0x6C: BIT(H, 0x20);
                     break;
-                case 0x6D: BIT5(L);
+                case 0x6D: BIT(L, 0x20);
                     break;
-                case 0x6E: BIT5(Memory[HL]);
+                case 0x6E: BIT(Memory[HL], 0x20);
                     break;
-                case 0x6F: BIT5(A);
+                case 0x6F: BIT(A,0x20);
                     break;
-                case 0x70: BIT6(B);
+                case 0x70: BIT(B, 0x40);
                     break;
-                case 0x71: BIT6(C);
+                case 0x71: BIT(C, 0x40);
                     break;
-                case 0x72: BIT6(D);
+                case 0x72: BIT(D, 0x40);
                     break;
-                case 0x73: BIT6(E);
+                case 0x73: BIT(E, 0x40);
                     break;
-                case 0x74: BIT6(H);
+                case 0x74: BIT(H, 0x40);
                     break;
-                case 0x75: BIT6(L);
+                case 0x75: BIT(L, 0x40);
                     break;
-                case 0x76: BIT6(Memory[HL]);
+                case 0x76: BIT(Memory[HL], 0x40);
                     break;
-                case 0x77: BIT6(A);
+                case 0x77: BIT(A,0x40);
                     break;
-                case 0x78: BIT7(B);
+                case 0x78: BIT(B, 0x80);
                     break;
-                case 0x79: BIT7(C);
+                case 0x79: BIT(C, 0x80);
                     break;
-                case 0x7A: BIT7(D);
+                case 0x7A: BIT(D, 0x80);
                     break;
-                case 0x7B: BIT7(E);
+                case 0x7B: BIT(E, 0x80);
                     break;
-                case 0x7C: BIT7(H);
+                case 0x7C: BIT(H, 0x80);
                     break;
-                case 0x7D: BIT7(L);
+                case 0x7D: BIT(L, 0x80);
                     break;
-                case 0x7E: BIT7(Memory[HL]);
+                case 0x7E: BIT(Memory[HL], 0x80);
                     break;
-                case 0x7F: BIT7(A);
+                case 0x7F: BIT(A,0x80);
                     break;
                 case 0x80:
                     break;
@@ -1481,47 +1481,11 @@ namespace Z80_Emulator
             }
             
         }
-        #region bit b,r  // will do logical OR with selected bit , if 0 then keep the Z flag on 1
-        private void BIT7(byte val)
-        {
-            SetFlag(Flags.Z, (val |= 0x80) == 0); // 1000 0000 MSB 
-        }
 
-        private void BIT6(byte val)
+        private void BIT(byte val,byte bit)
         {
-            SetFlag(Flags.Z, (val |= 0x40) == 0); // 0100 0000
+            SetFlag(Flags.Z, (val &= bit) == 0);
         }
-
-        private void BIT5(byte val)
-        {
-            SetFlag(Flags.Z, (val |= 0x20) == 0); // 0010 0000
-        }
-
-        private void BIT4(byte val)
-        {
-            SetFlag(Flags.Z, (val |= 0x10) == 0); // 0001 0000
-        }
-
-        private void BIT3(byte val)
-        {
-            SetFlag(Flags.Z, (val |= 0x08) == 0); // 0000 1000
-        }
-
-        private void BIT2(byte val)
-        {
-            SetFlag(Flags.Z, (val |= 0x04) == 0); // 0000 0100
-        }
-
-        private void BIT1(byte val)
-        {
-            SetFlag(Flags.Z, (val |= 0x02) == 0); // 0000 0010
-        }
-
-        private void BIT0(byte val)
-        {
-            SetFlag(Flags.Z, (val |= 0x01) == 0); // LSB 0000 0001
-        }
-        #endregion
 
         private void Handle_ED()
         {
