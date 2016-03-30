@@ -122,7 +122,7 @@ namespace Z80_Emulator
                     break;
                 case 0x07:
                     //  RLCA
-                    A = RotateLeftC(A, 1);
+                    A = RLC(A, 1);
                     break;
                 case 0x08:
                     //  EX AF, AF'
@@ -160,7 +160,7 @@ namespace Z80_Emulator
                     break;
                 case 0x0F:
                     //  RRCA
-                    A = RotateRightC(A, 1);
+                    A = RRC(A, 1);
                     break;
                 case 0x10:
                     //  DJNZ
@@ -965,261 +965,261 @@ namespace Z80_Emulator
             byte b = FetchNextByte();
             switch(b)
             {
-                case 0x00: RotateLeftC(B, 1);
+                case 0x00: RLC(B, 1);
                     break;
-                case 0x01: RotateLeftC(C, 1);
+                case 0x01: RLC(C, 1);
                     break;
-                case 0x02: RotateLeftC(D, 1);
+                case 0x02: RLC(D, 1);
                     break;
-                case 0x03: RotateLeftC(E, 1);
+                case 0x03: RLC(E, 1);
                     break;
-                case 0x04: RotateLeftC(H, 1);
+                case 0x04: RLC(H, 1);
                     break;
-                case 0x05: RotateLeftC(L, 1);
+                case 0x05: RLC(L, 1);
                     break;
-                case 0x06: RotateLeftC(Memory[HL],1 );
+                case 0x06: RLC(Memory[HL],1 );
                     break;
-                case 0x07: RotateLeftC(A, 1);
+                case 0x07: RLC(A, 1);
                     break;
-                case 0x08: RotateRightC(B, 1);
+                case 0x08: RRC(B, 1);
                     break;
-                case 0x09: RotateRightC(C, 1);
+                case 0x09: RRC(C, 1);
                     break;
-                case 0x0A: RotateRightC(D, 1);
+                case 0x0A: RRC(D, 1);
                     break;
-                case 0x0B: RotateRightC(E, 1);
+                case 0x0B: RRC(E, 1);
                     break;
-                case 0x0C: RotateRightC(H, 1);
+                case 0x0C: RRC(H, 1);
                     break;
-                case 0x0D: RotateRightC(L, 1);
+                case 0x0D: RRC(L, 1);
                     break;
-                case 0x0E: RotateRightC(Memory[HL], 1);
+                case 0x0E: RRC(Memory[HL], 1);
                     break;
-                case 0x0F: RotateRightC(A, 1);
+                case 0x0F: RRC(A, 1);
                     break;
-                case 0x10: RotateLeft(B, 1);
+                case 0x10: RL(B, 1);
                     break;
-                case 0x11: RotateLeft(C, 1);
+                case 0x11: RL(C, 1);
                     break;
-                case 0x12: RotateLeft(D, 1);
+                case 0x12: RL(D, 1);
                     break;
-                case 0x13: RotateLeft(E, 1);
+                case 0x13: RL(E, 1);
                     break;
-                case 0x14: RotateLeft(H, 1);
+                case 0x14: RL(H, 1);
                     break;
-                case 0x15: RotateLeft(L, 1);
+                case 0x15: RL(L, 1);
                     break;
-                case 0x16: RotateLeft(Memory[HL], 1);
+                case 0x16: RL(Memory[HL], 1);
                     break;
-                case 0x17: RotateLeft(A, 1);
+                case 0x17: RL(A, 1);
                     break;
-                case 0x18: RotateRight(B, 1);
+                case 0x18: RR(B, 1);
                     break;
-                case 0x19: RotateRight(C, 1);
+                case 0x19: RR(C, 1);
                     break;
-                case 0x1A: RotateRight(D, 1);
+                case 0x1A: RR(D, 1);
                     break;
-                case 0x1B: RotateRight(E, 1);
+                case 0x1B: RR(E, 1);
                     break;
-                case 0x1C: RotateRight(H, 1);
+                case 0x1C: RR(H, 1);
                     break;
-                case 0x1D: RotateRight(L, 1);
+                case 0x1D: RR(L, 1);
                     break;
-                case 0x1E: RotateRight(Memory[HL], 1);
+                case 0x1E: RR(Memory[HL], 1);
                     break;
-                case 0x1F: RotateRight(A, 1);
+                case 0x1F: RR(A, 1);
                     break;
-                case 0x20: ShiftLeftA(B, 1);
+                case 0x20: SLA(B, 1);
                     break;
-                case 0x21: ShiftLeftA(C, 1);
+                case 0x21: SLA(C, 1);
                     break;
-                case 0x22: ShiftLeftA(D, 1);
+                case 0x22: SLA(D, 1);
                     break;
-                case 0x23: ShiftLeftA(E, 1);
+                case 0x23: SLA(E, 1);
                     break;
-                case 0x24: ShiftLeftA(H, 1);
+                case 0x24: SLA(H, 1);
                     break;
-                case 0x25: ShiftLeftA(L, 1);
+                case 0x25: SLA(L, 1);
                     break;
-                case 0x26: ShiftLeftA(Memory[HL], 1);
+                case 0x26: SLA(Memory[HL], 1);
                     break;
-                case 0x27: ShiftLeftA(A, 1);
+                case 0x27: SLA(A, 1);
                     break;
-                case 0x28: ShiftRightA(B, 1);
+                case 0x28: SRA(B, 1);
                     break;
-                case 0x29: ShiftRightA(C, 1);
+                case 0x29: SRA(C, 1);
                     break;
-                case 0x2A: ShiftRightA(D, 1);
+                case 0x2A: SRA(D, 1);
                     break;
-                case 0x2B: ShiftRightA(E, 1);
+                case 0x2B: SRA(E, 1);
                     break;
-                case 0x2C: ShiftRightA(H, 1);
+                case 0x2C: SRA(H, 1);
                     break;
-                case 0x2D: ShiftRightA(L, 1);
+                case 0x2D: SRA(L, 1);
                     break;
-                case 0x2E: ShiftRightA(Memory[HL], 1);
+                case 0x2E: SRA(Memory[HL], 1);
                     break;
-                case 0x2F: ShiftRightA(A, 1);
+                case 0x2F: SRA(A, 1);
                     break;
-                case 0x30:
+                case 0x30: SLL(B, 1);
                     break;
-                case 0x31:
+                case 0x31: SLL(C, 1);
                     break;
-                case 0x32:
+                case 0x32: SLL(D, 1);
                     break;
-                case 0x33:
+                case 0x33: SLL(E, 1);
                     break;
-                case 0x34:
+                case 0x34: SLL(H, 1);
                     break;
-                case 0x35:
+                case 0x35: SLL(L, 1);
                     break;
-                case 0x36:
+                case 0x36: SLL(Memory[HL], 1);
                     break;
-                case 0x37:
+                case 0x37: SLL(A, 1);
                     break;
-                case 0x38:
+                case 0x38: SRL(B, 1);
                     break;
-                case 0x39:
+                case 0x39: SRL(C, 1);
                     break;
-                case 0x3A:
+                case 0x3A: SRL(D, 1);
                     break;
-                case 0x3B:
+                case 0x3B: SRL(E, 1);
                     break;
-                case 0x3C:
+                case 0x3C: SRL(H, 1);
                     break;
-                case 0x3D:
+                case 0x3D: SRL(L, 1);
                     break;
-                case 0x3E:
+                case 0x3E: SRL(Memory[HL], 1);
                     break;
-                case 0x3F:
+                case 0x3F: SRL(A, 1);
                     break;
-                case 0x40:
+                case 0x40: BIT(B, 0x01);          //bit0
                     break;
-                case 0x41:
+                case 0x41: BIT(C, 0x01);
                     break;
-                case 0x42:
+                case 0x42: BIT(D, 0x01);
                     break;
-                case 0x43:
+                case 0x43: BIT(E, 0x01);
                     break;
-                case 0x44:
+                case 0x44: BIT(H, 0x01);
                     break;
-                case 0x45:
+                case 0x45: BIT(L, 0x01);
                     break;
-                case 0x46:
+                case 0x46: BIT(Memory[HL], 0x01);
                     break;
-                case 0x47:
+                case 0x47: BIT(A, 0x01);          //end
                     break;
-                case 0x48:
+                case 0x48: BIT(B, 0x02);          //bit1
                     break;
-                case 0x49:
+                case 0x49: BIT(C, 0x02);
                     break;
-                case 0x4A:
+                case 0x4A: BIT(D, 0x02);
                     break;
-                case 0x4B:
+                case 0x4B: BIT(E, 0x02);
                     break;
-                case 0x4C:
+                case 0x4C: BIT(H, 0x02);
                     break;
-                case 0x4D:
+                case 0x4D: BIT(L, 0x02);
                     break;
-                case 0x4E:
+                case 0x4E: BIT(Memory[HL], 0x02);
                     break;
-                case 0x4F:
+                case 0x4F: BIT(A, 0x02);          //end
                     break;
-                case 0x50:
+                case 0x50: BIT(B, 0x04);          //bit2
                     break;
-                case 0x51:
+                case 0x51: BIT(C, 0x04);
                     break;
-                case 0x52:
+                case 0x52: BIT(D, 0x04);
                     break;
-                case 0x53:
+                case 0x53: BIT(E, 0x04);
                     break;
-                case 0x54:
+                case 0x54: BIT(H, 0x04);
                     break;
-                case 0x55:
+                case 0x55: BIT(L, 0x04);
                     break;
-                case 0x56:
+                case 0x56: BIT(Memory[HL], 0x04);
                     break;
-                case 0x57:
+                case 0x57: BIT(A, 0x04);          //end
                     break;
-                case 0x58:
+                case 0x58: BIT(B, 0x08);          //bit3
                     break;
-                case 0x59:
+                case 0x59: BIT(C, 0x08);
                     break;
-                case 0x5A:
+                case 0x5A: BIT(D, 0x08);
                     break;
-                case 0x5B:
+                case 0x5B: BIT(E, 0x08);
                     break;
-                case 0x5C:
+                case 0x5C: BIT(H, 0x08);
                     break;
-                case 0x5D:
+                case 0x5D: BIT(L, 0x08);
                     break;
-                case 0x5E:
+                case 0x5E: BIT(Memory[HL], 0x08);
                     break;
-                case 0x5F:
+                case 0x5F: BIT(A, 0x08);           //end
                     break;
-                case 0x60:
+                case 0x60: BIT(B, 0x10);
                     break;
-                case 0x61:
+                case 0x61: BIT(C, 0x10);
                     break;
-                case 0x62:
+                case 0x62: BIT(D, 0x10);
                     break;
-                case 0x63:
+                case 0x63: BIT(E, 0x10);
                     break;
-                case 0x64:
+                case 0x64: BIT(H, 0x10);
                     break;
-                case 0x65:
+                case 0x65: BIT(L, 0x10);
                     break;
-                case 0x66:
+                case 0x66: BIT(Memory[HL], 0x10);
                     break;
-                case 0x67:
+                case 0x67: BIT(A,0x10);
                     break;
-                case 0x68:
+                case 0x68: BIT(B, 0x20);
                     break;
-                case 0x69:
+                case 0x69: BIT(C, 0x20);
                     break;
-                case 0x6A:
+                case 0x6A: BIT(D, 0x20);
                     break;
-                case 0x6B:
+                case 0x6B: BIT(E, 0x20);
                     break;
-                case 0x6C:
+                case 0x6C: BIT(H, 0x20);
                     break;
-                case 0x6D:
+                case 0x6D: BIT(L, 0x20);
                     break;
-                case 0x6E:
+                case 0x6E: BIT(Memory[HL], 0x20);
                     break;
-                case 0x6F:
+                case 0x6F: BIT(A,0x20);
                     break;
-                case 0x70:
+                case 0x70: BIT(B, 0x40);
                     break;
-                case 0x71:
+                case 0x71: BIT(C, 0x40);
                     break;
-                case 0x72:
+                case 0x72: BIT(D, 0x40);
                     break;
-                case 0x73:
+                case 0x73: BIT(E, 0x40);
                     break;
-                case 0x74:
+                case 0x74: BIT(H, 0x40);
                     break;
-                case 0x75:
+                case 0x75: BIT(L, 0x40);
                     break;
-                case 0x76:
+                case 0x76: BIT(Memory[HL], 0x40);
                     break;
-                case 0x77:
+                case 0x77: BIT(A,0x40);
                     break;
-                case 0x78:
+                case 0x78: BIT(B, 0x80);
                     break;
-                case 0x79:
+                case 0x79: BIT(C, 0x80);
                     break;
-                case 0x7A:
+                case 0x7A: BIT(D, 0x80);
                     break;
-                case 0x7B:
+                case 0x7B: BIT(E, 0x80);
                     break;
-                case 0x7C:
+                case 0x7C: BIT(H, 0x80);
                     break;
-                case 0x7D:
+                case 0x7D: BIT(L, 0x80);
                     break;
-                case 0x7E:
+                case 0x7E: BIT(Memory[HL], 0x80);
                     break;
-                case 0x7F:
+                case 0x7F: BIT(A,0x80);
                     break;
                 case 0x80:
                     break;
@@ -1481,6 +1481,11 @@ namespace Z80_Emulator
             
         }
 
+        private void BIT(byte val,byte bit)
+        {
+            SetFlag(Flags.Z, (val &= bit) == 0);
+        }
+
         private void Handle_ED()
         {
             throw new NotImplementedException();
@@ -1496,7 +1501,7 @@ namespace Z80_Emulator
             throw new NotImplementedException();
         }
 
-        private byte RotateRight(byte val, int amount)
+        private byte RR(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -1507,7 +1512,7 @@ namespace Z80_Emulator
             return val;
         }
 
-        private byte RotateLeft(byte val, int amount)
+        private byte RL(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -1518,7 +1523,7 @@ namespace Z80_Emulator
             return val;
         }
 
-        private byte RotateRightC(byte val, int amount)
+        private byte RRC(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -1530,7 +1535,7 @@ namespace Z80_Emulator
             return val;
         }
 
-        private byte RotateLeftC(byte val, int amount)
+        private byte RLC(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -1542,7 +1547,7 @@ namespace Z80_Emulator
             return val;
         }
 
-        private byte ShiftLeftA(byte val , int amount)
+        private byte SLA(byte val , int amount)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -1552,7 +1557,7 @@ namespace Z80_Emulator
             return val;
         }
 
-        private byte ShiftRightA(byte val, int amount)
+        private byte SRA(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
             {
@@ -1562,6 +1567,21 @@ namespace Z80_Emulator
             }
             return val;
         }
+
+        private byte SLL(byte val, int amount)
+        {
+            return val;
+        }
+        private byte SRL(byte val, int amount)
+        {
+            for (int i = 0; i < amount; i++)
+            {
+                SetFlag(Flags.CF, (val & 0x01) == 1);
+                val >>= 1;
+            }
+            return val;
+        }
+
 
         private void DAA()
         {
