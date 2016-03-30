@@ -92,7 +92,6 @@ namespace Z80_Emulator
         {
             switch (instruction)
             {
-
                 case 0x00:
                     //  NOP
                     break;
@@ -828,7 +827,7 @@ namespace Z80_Emulator
                     PUSH(BC);
                     break;
                 case 0xC6:
-                    A += (byte) N;
+                    //A += (byte) N;
                     break;
                 case 0xC7:
                     break;
@@ -845,7 +844,7 @@ namespace Z80_Emulator
                 case 0xCD:
                     break;
                 case 0xCE:
-                    A += (byte) ((byte) N + cary);
+                    //A += (byte) ((byte) N + cary);
                     break;
                 case 0xCF:
                     break;
@@ -857,7 +856,7 @@ namespace Z80_Emulator
                 case 0xD2:
                     break;
                 case 0xD3:
-                    OUT((byte) N, A);
+                    //OUT((byte) N, A);
                     break;
                 case 0xD4:
                     break;
@@ -865,7 +864,7 @@ namespace Z80_Emulator
                     PUSH(DE);
                     break;
                 case 0xD6:
-                    A -= (byte) N;
+                    //A -= (byte) N;
                     break;
                 case 0xD7:
                     break;
@@ -876,14 +875,14 @@ namespace Z80_Emulator
                 case 0xDA:
                     break;
                 case 0xDB:
-                    IN(A, (byte) N);
+                    //IN(A, (byte) N);
                     break;
                 case 0xDC:
                     break;
                 case 0xDD: //TODO
                     break;
                 case 0xDE:
-                    A -= (byte) ((byte) N - cary);
+                    //A -= (byte) ((byte) N - cary);
                     break;
                 case 0xDF:
                     break;
@@ -902,7 +901,7 @@ namespace Z80_Emulator
                     PUSH(HL);
                     break;
                 case 0xE6:
-                    A = (byte) (A & (byte) N);
+                    //A = (byte) (A & (byte) N);
                     break;
                 case 0xE7:
                     break;
@@ -920,7 +919,7 @@ namespace Z80_Emulator
                     Handle_ED();
                     break;
                 case 0xEE:
-                    A = (byte) (A ^ N);
+                    //A = (byte) (A ^ N);
                     break;
                 case 0xEF:
                     break;
@@ -937,7 +936,7 @@ namespace Z80_Emulator
                 case 0xF5:
                     break;
                 case 0xF6:
-                    A = (byte) (A | N);
+                    //A = (byte) (A | N);
                     break;
                 case 0xF7:
                     break;
