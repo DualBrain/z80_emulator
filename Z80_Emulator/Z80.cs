@@ -1349,141 +1349,148 @@ namespace Z80_Emulator
                     break;
                 case 0XBF: RES(A, 7);
                     break;
-                case 0xC0:
+                case 0xC0: SET(B, 0);
                     break;
-                case 0xC1:
+                case 0xC1: SET(C, 0);
                     break;
-                case 0xC2:
+                case 0xC2: SET(D, 0);
                     break;
-                case 0xC3:
+                case 0xC3: SET(E, 0);
                     break;
-                case 0xC4:
+                case 0xC4: SET(H, 0);
                     break;
-                case 0xC5:
+                case 0xC5: SET(L, 0);
                     break;
-                case 0xC6:
+                case 0xC6: SET(Memory[HL], 0);
                     break;
-                case 0xC7:
+                case 0xC7: SET(A, 0);
                     break;
-                case 0xC8:
+                case 0xC8: SET(B, 1);
                     break;
-                case 0xC9:
+                case 0xC9: SET(C, 1);
                     break;
-                case 0xCA:
+                case 0xCA: SET(D, 1);
                     break;
-                case 0xCB:
+                case 0xCB: SET(E, 1);
                     break;
-                case 0xCC:
+                case 0xCC: SET(H, 1);
                     break;
-                case 0xCD:
+                case 0xCD: SET(L, 1);
                     break;
-                case 0xCE:
+                case 0xCE: SET(Memory[HL], 1);
                     break;
-                case 0xCF:
+                case 0xCF: SET(A, 1);
                     break;
-                case 0xD0:
+                case 0xD0: SET(B, 2);
                     break;
-                case 0xD1:
+                case 0xD1: SET(C, 2);
                     break;
-                case 0xD2:
+                case 0xD2: SET(D, 2);
                     break;
-                case 0xD3:
+                case 0xD3: SET(E, 2);
                     break;
-                case 0xD4:
+                case 0xD4: SET(H, 2);
                     break;
-                case 0xD5:
+                case 0xD5: SET(L, 2);
                     break;
-                case 0xD6:
+                case 0xD6: SET(Memory[HL], 2);
                     break;
-                case 0xD7:
+                case 0xD7: SET(A, 2);
                     break;
-                case 0xD8:
+                case 0xD8: SET(B, 3);
                     break;
-                case 0xD9:
+                case 0xD9: SET(C, 3);
                     break;
-                case 0xDA:
+                case 0xDA: SET(D, 3);
                     break;
-                case 0xDB:
+                case 0xDB: SET(E, 3);
                     break;
-                case 0xDC:
+                case 0xDC: SET(H, 3);
                     break;
-                case 0xDD:
+                case 0xDD: SET(L, 3);
                     break;
-                case 0xDE:
+                case 0xDE: SET(Memory[HL], 3);
                     break;
-                case 0xDF:
+                case 0xDF: SET(A, 3);
                     break;
-                case 0xE0:
+                case 0xE0: SET(B, 4);
                     break;
-                case 0xE1:
+                case 0xE1: SET(C, 4);
                     break;
-                case 0xE2:
+                case 0xE2: SET(D, 4);
                     break;
-                case 0xE3:
+                case 0xE3: SET(E, 4);
                     break;
-                case 0xE4:
+                case 0xE4: SET(H, 4);
                     break;
-                case 0xE5:
+                case 0xE5: SET(L, 4);
                     break;
-                case 0xE6:
+                case 0xE6: SET(Memory[HL], 4);
                     break;
-                case 0xE7:
+                case 0xE7: SET(A, 4);
                     break;
-                case 0xE8:
+                case 0xE8: SET(B, 5);
                     break;
-                case 0xE9:
+                case 0xE9: SET(C, 5);
                     break;
-                case 0xEA:
+                case 0xEA: SET(D, 5);
                     break;
-                case 0xEB:
+                case 0xEB: SET(E, 5);
                     break;
-                case 0xEC:
+                case 0xEC: SET(H, 5);
                     break;
-                case 0xED:
+                case 0xED: SET(L, 5);
                     break;
-                case 0xEE:
+                case 0xEE: SET(Memory[HL], 5);
                     break;
-                case 0xEF:
+                case 0xEF: SET(A, 5);
                     break;
-                case 0xF0:
+                case 0xF0: SET(B, 6);
                     break;
-                case 0xF1:
+                case 0xF1: SET(C, 6);
                     break;
-                case 0xF2:
+                case 0xF2: SET(D, 6);
                     break;
-                case 0xF3:
+                case 0xF3: SET(E, 6);
                     break;
-                case 0xF4:
+                case 0xF4: SET(H, 6);
                     break;
-                case 0xF5:
+                case 0xF5: SET(L, 6);
                     break;
-                case 0xF6:
+                case 0xF6: SET(Memory[HL], 6);
                     break;
-                case 0xF7:
+                case 0xF7: SET(A, 6);
                     break;
-                case 0xF8:
+                case 0xF8: SET(B, 7);
                     break;
-                case 0xF9:
+                case 0xF9: SET(C, 7);
                     break;
-                case 0xFA:
+                case 0xFA: SET(D, 7);
                     break;
-                case 0xFB:
+                case 0xFB: SET(E, 7);
                     break;
-                case 0xFC:
+                case 0xFC: SET(H, 7);
                     break;
-                case 0xFD:
+                case 0xFD: SET(L, 7);
                     break;
-                case 0xFE:
+                case 0xFE: SET(Memory[HL], 7);
                     break;
-                case 0xFF:
+                case 0xFF: SET(A, 7);
                     break;
             }
             
         }
 
+        private void SET(byte reg, int bitnumber)
+        {
+            reg |= (byte)(1 << bitnumber);
+        }
+
         private void RES(byte reg, int bitnumber)
         {
-            reg &= (byte)(1 << bitnumber);
+            byte zero = 0xFE;
+            zero = RL(zero, bitnumber);
+            reg &= zero;
         }
 
         private void Handle_ED()
@@ -1577,6 +1584,7 @@ namespace Z80_Emulator
         {
             return val;
         }
+
         private byte SRL(byte val, int amount)
         {
             for (int i = 0; i < amount; i++)
