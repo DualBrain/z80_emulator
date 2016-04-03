@@ -1556,29 +1556,29 @@ namespace Z80_Emulator
                     break;
                 case 0x22: ushort temp = FetchNextWord(); Memory[temp] = (byte)(IX); Memory[++temp] = (byte)(IX >> 8); PC++; // ex. temp = 45f5H , IX = 459fH , 
                     break;                                                                                            //Memory[45f5] = 9fH , Memory[45f6] = 45H , PC = PC + 2
-                case 0x23: IX++;
+                case 0x23:
                     break;
-                case 0x24: IX += 0x0100; // IXh++
+                case 0x24:
                     break;
-                case 0x25: IX -= 0x0100; // IXh--
+                case 0x25:
                     break;
-                case 0x26: Memory[IX] = FetchNextByte();
+                case 0x26:
                     break;
-                case 0x27: 
+                case 0x27:
                     break;
-                case 0x28: 
+                case 0x28:
                     break;
-                case 0x29: IX += IX;
+                case 0x29:
                     break;
-                case 0x2A: IX = Memory[FetchNextWord()];
+                case 0x2A:
                     break;
-                case 0x2B: IX--;
+                case 0x2B:
                     break;
-                case 0x2C: IX++;
+                case 0x2C:
                     break;
-                case 0x2D: IX--;
+                case 0x2D:
                     break;
-                case 0x2E: 
+                case 0x2E:
                     break;
                 case 0x2F:
                     break;
