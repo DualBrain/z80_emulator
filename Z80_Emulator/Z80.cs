@@ -1552,10 +1552,10 @@ namespace Z80_Emulator
                     break;
                 case 0x20: 
                     break;
-                case 0x21: 
+                case 0x21: IX = FetchNextWord();
                     break;
-                case 0x22:
-                    break;
+                case 0x22: ushort temp = FetchNextWord(); Memory[temp] = (byte)(IX); Memory[++temp] = (byte)(IX >> 8); PC++; // ex. temp = 45f5H , IX = 459fH , 
+                    break;                                                                                            //Memory[45f5] = 9fH , Memory[45f6] = 45H , PC = PC + 2
                 case 0x23:
                     break;
                 case 0x24:
@@ -2151,7 +2151,12 @@ namespace Z80_Emulator
             throw new NotImplementedException();
         }
 
-
+        private ushort FetchNextWord()
+        {
+            ushort val = (ushort)((Memory[PC] << 8) + Memory[++PC]);
+            PC++;
+            return val;
+        }
         private byte FetchNextByte()
         {
             var val = Memory[PC];
