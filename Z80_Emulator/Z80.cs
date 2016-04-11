@@ -34,6 +34,8 @@ namespace Z80_Emulator
         public byte L { get; set; }
         public byte H_Alt { get; set; }
         public byte L_Alt { get; set; }
+        public byte IXh { get; set; }
+        public byte IXl{ get; set; }
 
         public ushort HL
         {
@@ -65,7 +67,15 @@ namespace Z80_Emulator
             }
         }
 
-        public ushort IX { get; set; }
+        public ushort IX
+        {
+            get { return (ushort)((IXh << 8) + IXl); }
+            set
+            {
+                IXl = (byte)(value & 0xFF);
+                IXh = (byte)(value >> 8);
+            }
+        }
         public ushort IY { get; set; }
         public ushort PC { get; set; }
         public ushort SP { get; set; }
@@ -1486,101 +1496,66 @@ namespace Z80_Emulator
             byte b = FetchNextByte();
             switch (b)
             {
-                case 0x00: 
-                    break;
-                case 0x01: 
-                    break;
-                case 0x02:
-                    break;
-                case 0x03:
-                    break;
-                case 0x04:
-                    break;
-                case 0x05:
-                    break;
-                case 0x06:
-                    break;
-                case 0x07:
-                    break;
-                case 0x08:
-                    break;
-                case 0x09:
-                    break;
-                case 0x0A: IX += BC;
-                    break;
-                case 0x0B:
-                    break;
-                case 0x0C:
-                    break;
-                case 0x0D:
-                    break;
-                case 0x0E:
-                    break;
-                case 0x0F:
-                    break;
-                case 0x10:
-                    break;
-                case 0x11:
-                    break;
-                case 0x12:
-                    break;
-                case 0x13:
-                    break;
-                case 0x14:
-                    break;
-                case 0x15:
-                    break;
-                case 0x16:
-                    break;
-                case 0x17:
-                    break;
-                case 0x18:
-                    break;
-                case 0x19: IX += DE;
-                    break;
-                case 0x1A:
-                    break;
-                case 0x1B:
-                    break;
-                case 0x1C:
-                    break;
-                case 0x1D:
-                    break;
-                case 0x1E:
-                    break;
-                case 0x1F:
-                    break;
-                case 0x20: 
-                    break;
-                case 0x21: IX = FetchNextWord();
+                case 0x00:break;
+                case 0x01:break;
+                case 0x02:break;
+                case 0x03:break;
+                case 0x04:break;
+                case 0x05:break;
+                case 0x06:break;
+                case 0x07:break;
+                case 0x08:break;
+                case 0x09:break;
+                case 0x0A: IX += BC; break;
+                case 0x0B:break;
+                case 0x0C:break;
+                case 0x0D:break;
+                case 0x0E:break;
+                case 0x0F:break;
+                case 0x10:break;
+                case 0x11:break;
+                case 0x12:break;
+                case 0x13:break;
+                case 0x14:break;
+                case 0x15:break;
+                case 0x16:break;
+                case 0x17:break;
+                case 0x18:break;
+                case 0x19: IX += DE;break;
+                case 0x1A:break;
+                case 0x1B:break;
+                case 0x1C:break;
+                case 0x1D:break;
+                case 0x1E:break;
+                case 0x1F:break;
+                case 0x20:break;
+                case 0x21: IX = FetchNextWord(); 
                     break;
                 case 0x22: ushort temp = FetchNextWord(); Memory[temp] = (byte)(IX); Memory[++temp] = (byte)(IX >> 8); PC++; // ex. temp = 45f5H , IX = 459fH , 
                     break;                                                                                            //Memory[45f5] = 9fH , Memory[45f6] = 45H , PC = PC + 2
-                case 0x23:
+                case 0x23: IX++;
                     break;
-                case 0x24:
+                case 0x24: IXh++; ;
                     break;
-                case 0x25:
+                case 0x25: IXl--;
                     break;
-                case 0x26:
+                case 0x26: IXh--;
                     break;
-                case 0x27:
+                case 0x27: IXh = FetchNextByte();
                     break;
-                case 0x28:
+                case 0x28:break;
+                case 0x29:break;
+                case 0x2A: IX += IX;
                     break;
-                case 0x29:
+                case 0x2B: IX = Memory[FetchNextWord()];
                     break;
-                case 0x2A:
+                case 0x2C: IX--;
                     break;
-                case 0x2B:
+                case 0x2D: IXl++;
                     break;
-                case 0x2C:
+                case 0x2E: IXl--;
                     break;
-                case 0x2D:
-                    break;
-                case 0x2E:
-                    break;
-                case 0x2F:
+                case 0x2F: IXl = FetchNextByte();
                     break;
                 case 0x30:
                     break;
