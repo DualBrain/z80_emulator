@@ -975,7 +975,7 @@ namespace Z80_Emulator
             byte b = FetchNextByte();
             switch(b)
             {
-                case 0x00: RLC(B, 1);
+                case 0x00: B = RLC(B, 1);
                     break;
                 case 0x01: RLC(C, 1);
                     break;
@@ -1867,7 +1867,7 @@ namespace Z80_Emulator
                     break;
                 case 0xCA:
                     break;
-                case 0xCB:
+                case 0xCB: Handle_CB();
                     break;
                 case 0xCC:
                     break;
