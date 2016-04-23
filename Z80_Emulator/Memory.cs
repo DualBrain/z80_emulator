@@ -21,7 +21,7 @@ namespace Z80_Emulator
         public void LoadRom(byte[] rom)
         {
             if (rom.Length == 0)
-                throw new ArgumentNullException(nameof(rom));
+                throw new ArgumentNullException("Emty");
 
             if (rom.Length > _romSize)
                 throw new InvalidOperationException("ROM file is larger than the available memory");

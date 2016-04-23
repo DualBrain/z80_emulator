@@ -87,7 +87,7 @@ namespace Z80_Emulator
         public Z80(Memory memory)
         {
             if (memory == null)
-                throw new ArgumentNullException(nameof(memory));
+                throw new ArgumentNullException("Empty");
 
             Memory = memory;
         }

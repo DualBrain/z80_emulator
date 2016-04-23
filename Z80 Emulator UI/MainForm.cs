@@ -72,20 +72,20 @@ namespace Z80_Emulator_UI
 
             txtA.Text = _cpu.A.ToString("X2");
             txtA_Alt.Text = _cpu.A_Alt.ToString("X2");
-            txtF.Text = _cpu.A.ToString("X2");
-            txtF_Alt.Text = _cpu.A_Alt.ToString("X2");
-            txtB.Text = _cpu.A.ToString("X2");
-            txtB_Alt.Text = _cpu.A_Alt.ToString("X2");
-            txtC.Text = _cpu.A.ToString("X2");
-            txtC_Alt.Text = _cpu.A_Alt.ToString("X2");
-            txtD.Text = _cpu.A.ToString("X2");
-            txtD_Alt.Text = _cpu.A_Alt.ToString("X2");
-            txtE.Text = _cpu.A.ToString("X2");
-            txtE_Alt.Text = _cpu.A_Alt.ToString("X2");
-            txtH.Text = _cpu.A.ToString("X2");
-            txtH_Alt.Text = _cpu.A_Alt.ToString("X2");
-            txtL.Text = _cpu.A.ToString("X2");
-            txtL_Alt.Text = _cpu.A_Alt.ToString("X2");
+            txtF.Text = _cpu.F.ToString("X2");
+            txtF_Alt.Text = _cpu.F_Alt.ToString("X2");
+            txtB.Text = _cpu.B.ToString("X2");
+            txtB_Alt.Text = _cpu.B_Alt.ToString("X2");
+            txtC.Text = _cpu.C.ToString("X2");
+            txtC_Alt.Text = _cpu.C_Alt.ToString("X2");
+            txtD.Text = _cpu.D.ToString("X2");
+            txtD_Alt.Text = _cpu.D_Alt.ToString("X2");
+            txtE.Text = _cpu.E.ToString("X2");
+            txtE_Alt.Text = _cpu.E_Alt.ToString("X2");
+            txtH.Text = _cpu.H.ToString("X2");
+            txtH_Alt.Text = _cpu.H_Alt.ToString("X2");
+            txtL.Text = _cpu.L.ToString("X2");
+            txtL_Alt.Text = _cpu.L_Alt.ToString("X2");
 
             txtIX.Text = _cpu.IX.ToString("X2");
             txtIY.Text = _cpu.IY.ToString("X2");
@@ -154,7 +154,10 @@ namespace Z80_Emulator_UI
             timer.Enabled = true;
         }
 
-        private void timer_Tick(object sender, EventArgs e) => Step();
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            Step();
+        }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
@@ -188,6 +191,11 @@ namespace Z80_Emulator_UI
             str.AppendLine("Version: 0.1 BETA");
 
             MessageBox.Show(str.ToString(), "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

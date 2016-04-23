@@ -94,6 +94,10 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshMemoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshRegistersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshFlagsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridMemory = new System.Windows.Forms.DataGridView();
@@ -112,10 +116,6 @@
             this.txtSF = new System.Windows.Forms.TextBox();
             this.openFileDia = new System.Windows.Forms.OpenFileDialog();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshMemoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshRegistersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshFlagsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             label1 = new System.Windows.Forms.Label();
             groupBox1 = new System.Windows.Forms.GroupBox();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -881,21 +881,55 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(100, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshMemoryToolStripMenuItem,
+            this.refreshRegistersToolStripMenuItem,
+            this.refreshFlagsToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toolsToolStripMenuItem.Text = "&Tools";
+            // 
+            // refreshMemoryToolStripMenuItem
+            // 
+            this.refreshMemoryToolStripMenuItem.Name = "refreshMemoryToolStripMenuItem";
+            this.refreshMemoryToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
+            this.refreshMemoryToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.refreshMemoryToolStripMenuItem.Text = "Refresh &Memory";
+            this.refreshMemoryToolStripMenuItem.Click += new System.EventHandler(this.refreshMemoryToolStripMenuItem_Click);
+            // 
+            // refreshRegistersToolStripMenuItem
+            // 
+            this.refreshRegistersToolStripMenuItem.Name = "refreshRegistersToolStripMenuItem";
+            this.refreshRegistersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.refreshRegistersToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.refreshRegistersToolStripMenuItem.Text = "Refresh &Registers";
+            this.refreshRegistersToolStripMenuItem.Click += new System.EventHandler(this.refreshRegistersToolStripMenuItem_Click);
+            // 
+            // refreshFlagsToolStripMenuItem
+            // 
+            this.refreshFlagsToolStripMenuItem.Name = "refreshFlagsToolStripMenuItem";
+            this.refreshFlagsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.refreshFlagsToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.refreshFlagsToolStripMenuItem.Text = "Refresh &Flags";
+            this.refreshFlagsToolStripMenuItem.Click += new System.EventHandler(this.refreshFlagsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -908,7 +942,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -1122,40 +1156,6 @@
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // toolsToolStripMenuItem
-            // 
-            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.refreshMemoryToolStripMenuItem,
-            this.refreshRegistersToolStripMenuItem,
-            this.refreshFlagsToolStripMenuItem});
-            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.toolsToolStripMenuItem.Text = "&Tools";
-            // 
-            // refreshMemoryToolStripMenuItem
-            // 
-            this.refreshMemoryToolStripMenuItem.Name = "refreshMemoryToolStripMenuItem";
-            this.refreshMemoryToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
-            this.refreshMemoryToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.refreshMemoryToolStripMenuItem.Text = "Refresh &Memory";
-            this.refreshMemoryToolStripMenuItem.Click += new System.EventHandler(this.refreshMemoryToolStripMenuItem_Click);
-            // 
-            // refreshRegistersToolStripMenuItem
-            // 
-            this.refreshRegistersToolStripMenuItem.Name = "refreshRegistersToolStripMenuItem";
-            this.refreshRegistersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.refreshRegistersToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.refreshRegistersToolStripMenuItem.Text = "Refresh &Registers";
-            this.refreshRegistersToolStripMenuItem.Click += new System.EventHandler(this.refreshRegistersToolStripMenuItem_Click);
-            // 
-            // refreshFlagsToolStripMenuItem
-            // 
-            this.refreshFlagsToolStripMenuItem.Name = "refreshFlagsToolStripMenuItem";
-            this.refreshFlagsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.refreshFlagsToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.refreshFlagsToolStripMenuItem.Text = "Refresh &Flags";
-            this.refreshFlagsToolStripMenuItem.Click += new System.EventHandler(this.refreshFlagsToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1177,6 +1177,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Z80 Emulator";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
